@@ -86,7 +86,7 @@ function removeqcCmp2Container() {
 }    
 
 // tries to remove onetrus
-function removePopup3() {
+function popupCheck3() {
     const allCookies = document.querySelectorAll('[id*=onetrust-consent]')
     console.log("Removing: ");
     allCookies.forEach(cookie => {
