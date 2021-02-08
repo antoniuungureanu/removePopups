@@ -30,10 +30,10 @@ function removeHiddenFromBody() {
 // tries to remove *cookie-dialog* popups
 function popupCheck() {
     const allCookies = document.querySelectorAll('[id*=cookie-dialog]')
-    allCookies.forEach(cook => {
+    allCookies.forEach(cookie => {
         console.log("Removing: ");
-        console.log(cook);
-        cook.remove();
+        console.log(cookie);
+        cookie.remove();
     })
 }
 
@@ -41,9 +41,9 @@ function popupCheck() {
 function popupCheck2() {
     const allCookies = document.querySelectorAll('[id*=pop-div]')
     console.log("Removing: ");
-    allCookies.forEach(cook => {
-        console.log(cook);
-        cook.remove();
+    allCookies.forEach(cookie => {
+        console.log(cookie);
+        cookie.remove();
     })
 }
 
@@ -85,10 +85,21 @@ function removeqcCmp2Container() {
     }
 }    
 
+// tries to remove onetrus
+function removePopup3() {
+    const allCookies = document.querySelectorAll('[id*=onetrust-consent]')
+    console.log("Removing: ");
+    allCookies.forEach(cookie => {
+        console.log(cookie);
+        cookie.remove();
+    })
+}
+
 function removeAnything() {
     tryThisFunction(loginCheck);
     tryThisFunction(popupCheck);
     tryThisFunction(popupCheck2);
+    tryThisFunction(popupCheck3);
     tryThisFunction(removeLastPopupDiv);
     tryThisFunction(removeHiddenFromBody);
     tryThisFunction(removeAllPresentationDiv);
