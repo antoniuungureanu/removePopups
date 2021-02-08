@@ -8,4 +8,4 @@ Method 2:<br/>
     * in Firefox:<br/>
     - Open Firefox, navigate to about:debugging#/runtime/this-firefox and then press on the "Load Temporary Add-on.." button to load the manifest.json file. This will have to be done each time you open Firefox. <br/> 
     * in Chrome:<br/>
-    - Open Chrome, navigate to chrome://extensions, shiwtch "Developer mode" to on, and then "Load unpacked" the extension
+    - Open Chrome, navigate to chrome://extensions, shiwtch "Developer mode" to on, and then press the button "Load unpacked" and search for manifest.json
