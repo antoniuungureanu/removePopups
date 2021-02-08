@@ -95,6 +95,15 @@ function popupCheck3() {
     })
 }
 
+function removeBlur() {
+    const body = document.querySelector('body');
+    var prefix = "blur";
+    var classes = body.className.split(" ").filter(function(c) {
+        return c.lastIndexOf(prefix) === -1;
+    });
+    body.className = classes.join(" ").trim();
+}
+
 function removeAnything() {
     tryThisFunction(loginCheck);
     tryThisFunction(popupCheck);
@@ -104,6 +113,7 @@ function removeAnything() {
     tryThisFunction(removeHiddenFromBody);
     tryThisFunction(removeAllPresentationDiv);
     tryThisFunction(removeqcCmp2Container);
+    tryThisFunction(removeBlur);
 }
 
 function mutationsCallback(mutations) {
