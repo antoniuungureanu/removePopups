@@ -1,7 +1,6 @@
 // Instagram Signup/Login and Image Re-Linker via the MutationObserver API
 // Video Tutorial URL: https://youtu.be/KWWGC2TbT70
 
-// FUNCTION: Checks for presence of signup footer and modal, then removes them if they're on the page.
 // each function will try to remove the popups
 
 // tries to remove Instagram popups
@@ -19,6 +18,7 @@ function loginCheck() {
     }
 }
 
+// set the scroll bar visible
 function removeHiddenFromBody() {
     const body = document.querySelector('body');
     const isHidden = body.style.overflow === 'hidden';
@@ -74,11 +74,39 @@ function tryThisFunction(greatFunction) {
 function removeAllPresentationDiv() {
     const allPresentations  = document.querySelectorAll('[role=presentation]');
     allPresentations.forEach(el => {if (el.tagName == 'DIV') el.remove()});
+}   
+
+function removeqcCmp2Container() {
+    const body = document.querySelector('body');
+    const firstEl = body.firstElementChild;
+    const hasQc = firstEl.id === "qc-cmp2-container" || (firstEl.className.match(".*qc-cmp2-container.*") !== null);
+    if (hasQc) {
+        firstEl.remove()
+    }
 }    
 
-tryThisFunction(loginCheck);
-tryThisFunction(popupCheck);
-tryThisFunction(popupCheck2);
-tryThisFunction(removeLastPopupDiv);
-tryThisFunction(removeHiddenFromBody);
-tryThisFunction(removeAllPresentationDiv);
+function removeAnything() {
+    tryThisFunction(loginCheck);
+    tryThisFunction(popupCheck);
+    tryThisFunction(popupCheck2);
+    tryThisFunction(removeLastPopupDiv);
+    tryThisFunction(removeHiddenFromBody);
+    tryThisFunction(removeAllPresentationDiv);
+    tryThisFunction(removeqcCmp2Container);
+}
+
+function mutationsCallback(mutations) {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+            console.log("Child changed in body");
+            removeAnything();
+        } 
+    });
+}
+
+const body = document.querySelector('body');
+const popupOberver = new MutationObserver(mutationsCallback);
+popupOberver.observe(body, { childList: true });
+
+removeAnything();
+
