@@ -63,6 +63,17 @@ function removeLastPopupDiv() {
     }
 }
 
+// tries to consent-popup
+function removeConsentPopup() {
+    const divsToRemove = document.querySelectorAll('[class*=consent-popup]')
+    var removedEl = true;
+    console.log("Removing: ");
+    divsToRemove.forEach(div => {
+        console.log(div);
+        div.remove();
+    })
+}
+
 function tryThisFunction(greatFunction) {
     try {
         greatFunction();
@@ -95,6 +106,16 @@ function popupCheck3() {
     })
 }
 
+// tries to remove cookie
+function popupCheck4() {
+    const allCookies = document.querySelectorAll('[id*=cookie]')
+    console.log("Removing: ");
+    allCookies.forEach(cookie => {
+        console.log(cookie);
+        cookie.remove();
+    })
+}
+
 function removeBlur() {
     const body = document.querySelector('body');
     var prefix = "blur";
@@ -104,16 +125,33 @@ function removeBlur() {
     body.className = classes.join(" ").trim();
 }
 
+function removeGdpr() {
+    const allIdsCookies = document.querySelectorAll('[id*=gdpr]');
+    const allClassCookies = document.querySelectorAll('[class*=gdpr]');
+    console.log("Removing: ");
+    allIdsCookies.forEach(cookie => {
+        console.log(cookie);
+        cookie.remove();
+    })
+    allClassCookies.forEach(cookie => {
+        console.log(cookie);
+        cookie.remove();
+    })
+}
+
 function removeAnything() {
     tryThisFunction(loginCheck);
     tryThisFunction(popupCheck);
     tryThisFunction(popupCheck2);
     tryThisFunction(popupCheck3);
+    tryThisFunction(popupCheck4);
     tryThisFunction(removeLastPopupDiv);
+    tryThisFunction(removeConsentPopup);
     tryThisFunction(removeHiddenFromBody);
     tryThisFunction(removeAllPresentationDiv);
     tryThisFunction(removeqcCmp2Container);
     tryThisFunction(removeBlur);
+    tryThisFunction(removeGdpr);
 }
 
 function mutationsCallback(mutations) {
